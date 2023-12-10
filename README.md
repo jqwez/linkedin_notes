@@ -1,4 +1,4 @@
-#LinkedIn Conversation Note Tracker
+# LinkedIn Conversation Note Tracker
 
 The only tool created to track your conversation notes on LinkedIn.
 
@@ -6,7 +6,7 @@ The only tool created to track your conversation notes on LinkedIn.
 
 In 2023, @jqwez started having many conversations on LinkedIn with potential future coworkers and found that other note-taking tools were inadequate for making sense of all the interactions. This tool is meant to both keep a record of interactions within your given network and help you better understand how your network is interconnected. At the time of conception, the best working toolset for @jqwez was a bunch of notepad managed .txt files in a directory on his desktop. Thus, it is likely we will use notepad as our default text editor.
 
-# Model-View-Controller
+## Model-View-Controller
 
 We are using this nomenclature to get us started in code organization; however, we might not stick to strict patterns. The intent is to have a working application as soon as practicable.
 
