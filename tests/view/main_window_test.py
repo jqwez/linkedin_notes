@@ -24,5 +24,20 @@ class MainWindowTest(unittest.TestCase):
       with self.assertRaises(TypeError):
         self.main_window.add_view("string", item)
 
-  def test_transition_view(self):
-    pass
+  def test_transition_view_changes_current_view(self):
+    self.main_window.add_view("test_frame", self.TestFrame)
+    self.main_window.add_view("test_frame2", self.TestFrame)
+    self.main_window.transition_view("test_frame")
+    current_view = self.main_window.view
+    self.main_window.transition_view("test_frame2")
+    self.assertNotEqual(self.main_window.view, current_view)
+
+  def test_transition_view_invalid_text_doesnt_do_anything(self):
+    self.main_window.add_view("test_frame", self.TestFrame)
+    self.main_window.add_view("test_frame2", self.TestFrame)
+    self.main_window.transition_view("test_frame")
+    current_view = self.main_window.view
+    self.main_window.transition_view("new_frame")
+    self.assertEqual(self.main_window.view, current_view)
+    self.main_window.transition_view("test_frame2")
+    self.assertNotEqual(self.main_window.view, current_view)

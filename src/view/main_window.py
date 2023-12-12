@@ -12,6 +12,14 @@ class MainWindow(tk.Tk):
     self.add_view("connection_list", ConnectionListWidget)
     self.transition_view("connection_list")
 
+  @property
+  def view(self):
+    return self.views.get("current")
+
+  @view.setter
+  def view(self, frame: tk.Frame | ttk.Frame):
+    self.views["current"] = frame
+
   def add_view(self, view_name: str, view_frame: tk.Frame, *args, **kwargs):
     if type(view_name) != str:
       raise TypeError("Not a valid string")
@@ -20,11 +28,10 @@ class MainWindow(tk.Tk):
     self.views[view_name] = view_frame(self, *args, **kwargs)
 
   def transition_view(self, next_view_name):
-    current_view = self.views.get("current")
-    if current_view:
-      current_view.pack_forget()
+    if self.view:
+      self.view.pack_forget()
     
     next_view = self.views.get(next_view_name)
     if next_view:
       next_view.pack(fill=tk.BOTH, expand=True)
-      self.views["current"] = next_view
+      self.view = next_view
