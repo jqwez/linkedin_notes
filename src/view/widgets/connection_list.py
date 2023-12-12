@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 from model.dao.connection_dao import ConnectionDAO
 
