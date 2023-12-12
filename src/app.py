@@ -1,10 +1,15 @@
+import sys
 from controller import startup
 
-def main():
+
+
+
+def main(args=None):
   startup.start_view()
 
 
 
 
 if __name__ == "__main__":
-  main()
+  args = sys.argv[1:]
+  main(args)
