@@ -9,13 +9,15 @@ class ConnectionService:
         self.conn: Connection = conn
         self.cur = conn.cursor()
 
-    def save_connection(self, name: str, url: str) -> ConnectionDAO:
+    def save_connection(
+        self, name: str, url: str, company: str = None
+    ) -> ConnectionDAO:
         self.cur.execute(
             """
-                INSERT INTO connections (id, full_name, linkedin)
-                VALUES (?, ?, ?);
+                INSERT INTO connections (id, full_name, linkedin, company)
+                VALUES (?, ?, ?, ?);
                 """,
-            (str(uuid4()), name, url),
+            (str(uuid4()), name, url, company),
         )
         self.cur.execute(
             "SELECT * FROM connections WHERE rowid=?;", (self.cur.lastrowid,)
