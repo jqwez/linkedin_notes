@@ -20,7 +20,7 @@ Python was chosen to enable quick development targeting the desktop. While TkInt
 
 ## Contributions
 
-Contributions are not likely to come in and certainly not expected for such this project but they are certainly welcome. The simplicity of this open source application would likely make a great first/early contribution for the budding open source developer. All new features should have tests but, at a minimum, should not break any tests. Formatting is enforced by python black.
+Contributions are not likely to come in and certainly not expected for such this project but they are certainly welcome. The simplicity of this open source application would likely make a great first/early contribution for the budding open source developer. All new features should have tests but, at a minimum, should not break any tests. We strive to have 100% coverage but this is not currently a hard and fast rule. Formatting is enforced by python black.
 
 ## TODO:
 
