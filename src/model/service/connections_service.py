@@ -1,4 +1,5 @@
 from sqlite3 import Connection
+from uuid import uuid4
 
 from model.dao.connection_dao import ConnectionDAO
 
@@ -9,9 +10,9 @@ class ConnectionService:
   
   def save_connection(self, name: str, url: str) -> ConnectionDAO:
     self.cur.execute("""
-                INSERT INTO connections (full_name, linkedin)
-                VALUES (?, ?);
-                """, (name, url))
+                INSERT INTO connections (id, full_name, linkedin)
+                VALUES (?, ?, ?);
+                """, (str(uuid4()), name, url))
     self.cur.execute("SELECT * FROM connections WHERE rowid=?;", 
                      (self.cur.lastrowid,))
     result = self.cur.fetchone()
@@ -24,7 +25,7 @@ class ConnectionService:
     db_entries = self.cur.fetchall()
     return [ConnectionDAO.from_entry(entry) for entry in db_entries]
 
-  def get_by_id(self, _id: int) -> ConnectionDAO | None:
+  def get_by_id(self, _id: str) -> ConnectionDAO | None:
     self.cur.execute("SELECT * FROM connections WHERE id=?", (_id,))
     res = self.cur.fetchone()
     return ConnectionDAO.from_entry(res)

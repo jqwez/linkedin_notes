@@ -1,13 +1,13 @@
 
 class ConnectionDAO:
   def __init__(self, 
-               _id: int, 
+               _id: str, 
                name: str, 
                linkedin: str, 
   ):
-    self.id = _id
-    self.name = name
-    self.linkedin = linkedin
+    self.id: str = _id
+    self.name: str = name
+    self.linkedin: str = linkedin
 
   def __repr__(self):
     return f"ConnectionDAO(_id={self.id}, name={self.name}, linkedin={self.linkedin})"

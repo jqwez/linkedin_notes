@@ -2,6 +2,8 @@ import os
 import sqlite3
 from enum import Enum
 
+from model.db.database_extensions import DatabaseExtensions
+
 class DatabaseFactoryEnum(Enum):
   PROD = 0
   DEV = 1
@@ -10,11 +12,13 @@ class DatabaseFactory:
 
   @staticmethod
   def new_connection(env: DatabaseFactoryEnum):
+    extensions = DatabaseExtensions()
+    extensions.apply_extensions()
     if env == DatabaseFactoryEnum.PROD:
       check_if_in_cwd("app_data")
-      return sqlite3.connect("app_data/linkedinnotesdb.dat")
+      return sqlite3.connect("app_data/linkedinnotesdb.dat", detect_types=sqlite3.PARSE_DECLTYPES)
     elif env == DatabaseFactoryEnum.DEV:
-      return sqlite3.connect(":memory:")
+      return sqlite3.connect(":memory:", detect_types=sqlite3.PARSE_DECLTYPES)
     else:
       raise TypeError()
 

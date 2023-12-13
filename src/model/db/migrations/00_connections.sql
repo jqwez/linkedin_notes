@@ -1,8 +1,7 @@
 
--- Creates connection table ot my database 
-
 CREATE TABLE IF NOT EXISTS connections (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id TEXT PRIMARY KEY,
   full_name TEXT NOT NULL,
   linkedin TEXT NOT NULL
 );
+
