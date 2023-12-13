@@ -1,4 +1,4 @@
-# LinkedIn Conversation Note Tracker
+# Networking Conversation Note Tracker
 
 The only tool created to track your conversation notes on LinkedIn.
 
