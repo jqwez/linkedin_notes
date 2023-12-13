@@ -1,6 +1,16 @@
+
+# py
 venv
 .pytest_cache
 __pycache__
+
+# local database
 app_data
+
+# coverage
 .coverage
 htmlcov
+
+# pyinstaller
+build
+dist
