@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from view.widgets.connection_list import ConnectionListWidget
+from view.screens.connection_list_screen import ConnectionListScreen
 from view.widgets.add_connection_modal import AddConnectionModal
 
 
@@ -11,7 +11,7 @@ class MainWindow(tk.Tk):
         self.title("Networking Notes")
         self.views: dict[str : tk.Frame | ttk.Frame] = {}
 
-        self.add_view("connection_list", ConnectionListWidget)
+        self.add_view("connection_list", ConnectionListScreen)
         self.transition_view("connection_list")
         self.button = ttk.Button(self, text="Push for Modal")
         self.button.bind("<Button-1>", lambda event: self.open_dialog())
