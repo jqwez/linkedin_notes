@@ -3,6 +3,7 @@ from tkinter import ttk
 
 from view.widgets.connection_list import ConnectionListWidget
 
+
 class ConnectionListScreen(ttk.Frame):
     def __init__(self, master=None, **kwargs):
         super().__init__(master, **kwargs)
@@ -11,4 +12,3 @@ class ConnectionListScreen(ttk.Frame):
 
         self.connection_list = ConnectionListWidget()
         self.connection_list.pack()
-

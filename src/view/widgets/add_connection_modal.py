@@ -27,4 +27,4 @@ class AddConnectionModal(tk.Toplevel):
             print(x, y)
             return (x, y)
         else:
-            return (self.winfo_screenwidth()//2, self.winfo_screenheight//2)
+            return (self.winfo_screenwidth() // 2, self.winfo_screenheight // 2)
