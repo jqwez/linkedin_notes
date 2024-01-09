@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
+
 from model.dao.connection_dao import ConnectionDAO
+from view.widgets.edit_connection_modal import EditConnectionModal
 
 dummy_connections = [ConnectionDAO(i, "jere ", "url") for i in range(0, 10)]
 
@@ -33,6 +35,4 @@ class ConnectionListWidget(ttk.Frame):
             edit.grid(column=column+2, row=row)
 
     def edit_connection(self, dao:ConnectionDAO):
-        print(dao)
-        print(dao.id)
-
+        modal = EditConnectionModal(self)
