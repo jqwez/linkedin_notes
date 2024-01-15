@@ -19,3 +19,11 @@ class ConnectionController:
         service = ConnectionController.connection_service()
         data = service.get_all()
         return data
+
+    @staticmethod
+    def update_connection(dao: ConnectionDAO, field: str, value: str) -> ConnectionDAO:
+        service = ConnectionController.connection_service()
+        dao.set(field, value)
+        service.edit_by_id(dao.id, dao)
+        connection = service.get_by_id(dao.id)
+        return connection

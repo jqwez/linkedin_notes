@@ -46,3 +46,4 @@ class ConnectionService:
             "UPDATE connections SET full_name=?, linkedin=? WHERE id=?;",
             (dao.name, dao.linkedin, _id),
         )
+        self.conn.commit()

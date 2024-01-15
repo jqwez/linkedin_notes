@@ -15,7 +15,14 @@ class ConnectionListWidget(ttk.Frame):
             command=self.update_data,
         ).grid(column=0, row=0, columnspan=2, sticky="nsew")
 
+    def clear_frame(self):
+        for widget in self.winfo_children():
+            if isinstance(widget, ttk.Button):
+                return
+            widget.destroy()
+
     def update_data(self):
+        self.clear_frame()
         self.connection_row(is_header=True, column=0, row=1)
         data = ConnectionController.get_connections()
         for i, connection in enumerate(data):

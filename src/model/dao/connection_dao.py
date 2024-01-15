@@ -21,6 +21,13 @@ class ConnectionDAO:
         else:
             return False
 
+    def set(self, field: str, value: str):
+        self.__setattr__(field, value)
+
+    def get(self, field: str) -> str:
+        value = self.__getattribute__(field)
+        return value if value else ""
+
     @staticmethod
     def from_entry(database_entry):
         if database_entry is None:
