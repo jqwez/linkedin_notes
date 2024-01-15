@@ -3,8 +3,7 @@ from tkinter import ttk
 
 from model.dao.connection_dao import ConnectionDAO
 from view.widgets.edit_connection_modal import EditConnectionModal
-
-dummy_connections = [ConnectionDAO(i, "jere " + str(i), "url") for i in range(0, 10)]
+from controller.connection_controller import ConnectionController
 
 
 class ConnectionListWidget(ttk.Frame):
@@ -13,11 +12,12 @@ class ConnectionListWidget(ttk.Frame):
         self.button = ttk.Button(
             self,
             text="Get Connections",
-            command=lambda: self.update_data(dummy_connections),
+            command=self.update_data,
         ).grid(column=0, row=0, columnspan=2, sticky="nsew")
 
-    def update_data(self, data):
+    def update_data(self):
         self.connection_row(is_header=True, column=0, row=1)
+        data = ConnectionController.get_connections()
         for i, connection in enumerate(data):
             self.connection_row(dao=connection, column=0, row=i + 2)
 

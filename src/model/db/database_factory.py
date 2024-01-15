@@ -46,7 +46,7 @@ def check_if_in_cwd(dir: str):
 
 
 def get_migrations():
-    migrations_dir = os.path.join(os.getcwd(), "src/model/db/migrations")
+    migrations_dir = os.path.join(os.getcwd(), "model/db/migrations")
     migrations = [
         os.path.join(migrations_dir, migration)
         for migration in os.listdir(migrations_dir)
