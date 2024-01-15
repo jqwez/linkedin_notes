@@ -10,9 +10,10 @@ class ConnectionController:
         return ConnectionService(conn=conn)
 
     @staticmethod
-    def submit_new_connection(name: str = None, url: str = None, company: str = None):
+    def submit_new_connection(name: str = None, url: str = None, company: str = None) -> ConnectionDAO:
         service = ConnectionController.connection_service()
         dao = service.save_connection(name=name, url=url, company=company)
+        return dao
 
     @staticmethod
     def get_connections() -> list[ConnectionDAO]:

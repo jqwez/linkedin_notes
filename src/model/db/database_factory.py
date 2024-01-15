@@ -18,7 +18,7 @@ class DatabaseFactory:
         if env == DatabaseFactoryEnum.PROD:
             check_if_in_cwd("app_data")
             return sqlite3.connect(
-                "app_data/linkedinnotesdb.dat", detect_types=sqlite3.PARSE_DECLTYPES
+                "app_data/networkingdb.dat", detect_types=sqlite3.PARSE_DECLTYPES
             )
         elif env == DatabaseFactoryEnum.DEV:
             return sqlite3.connect(":memory:", detect_types=sqlite3.PARSE_DECLTYPES)
