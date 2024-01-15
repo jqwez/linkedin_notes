@@ -9,15 +9,17 @@ class MainWindow(tk.Tk):
         super().__init__(*args, **kwargs)
         self.geometry("800x800")
         self.title("Networking Notes")
-        self.views: dict[str : tk.Frame | ttk.Frame] = {}
+        icon_path = "assets/sticky_note.ico"
+        self.iconbitmap(default=icon_path)
 
+        self.views: dict[str : tk.Frame | ttk.Frame] = {}
         self.add_view("connection_list", ConnectionListScreen)
         self.transition_view("connection_list")
         self.button = ttk.Button(self, text="Push for Modal")
-        self.button.bind("<Button-1>", lambda event: self.open_dialog())
+        self.button.bind("<Button-1>", self.open_dialog)
         self.button.pack()
 
-    def open_dialog(self):
+    def open_dialog(self, event: tk.Event):
         modal = AddConnectionModal(self)
 
     @property

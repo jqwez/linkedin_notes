@@ -1,6 +1,6 @@
-from view import main_window
+from view.main_window import MainWindow
 
 
 def start_view():
-    main = main_window.MainWindow()
+    main = MainWindow()
     main.mainloop()

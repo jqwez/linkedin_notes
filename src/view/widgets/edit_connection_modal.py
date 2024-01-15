@@ -15,7 +15,7 @@ class EditConnectionModal(tk.Toplevel):
     def populate_fields(self):
         self.action_label = ttk.Label(self, text="Edit Connection")
         self.action_label.grid(column=0, row=1)
-        self.name_label = self.editable(text=self.dao.name, row=2) 
+        self.name_label = self.editable(text=self.dao.name, row=2)
         self.url_label = self.editable(text=self.dao.linkedin, row=3)
         self.columnconfigure(0, weight=1)
 
@@ -24,7 +24,7 @@ class EditConnectionModal(tk.Toplevel):
         label.bind("<Button-1>", self.handle_click_field)
         label.grid(column=0, row=row)
         return label
-        
+
     def handle_cancel(self, event: tk.Event):
         self.destroy()
 
