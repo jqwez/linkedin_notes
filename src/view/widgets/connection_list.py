@@ -46,4 +46,4 @@ class ConnectionListWidget(ttk.Frame):
             edit.grid(column=column + 2, row=row)
 
     def edit_connection(self, dao: ConnectionDAO):
-        modal = EditConnectionModal(self, dao=dao)
+        modal = EditConnectionModal(self, dao=dao, cb=self.update_data)

@@ -6,9 +6,12 @@ from controller.connection_controller import ConnectionController
 
 
 class EditConnectionModal(tk.Toplevel):
-    def __init__(self, master=None, dao: ConnectionDAO = None, *args, **kwargs):
+    def __init__(
+        self, master=None, dao: ConnectionDAO = None, cb=None, *args, **kwargs
+    ):
         super().__init__(master=None, *args, **kwargs)
         self.dao = dao
+        self.cb = cb
         x, y = self.get_window_position()
         self.geometry(f"300x300+{x}+{y}")
         self.populate_fields()
@@ -55,6 +58,8 @@ class EditConnectionModal(tk.Toplevel):
         label = ttk.Label(self, text=self.dao.get(field))
         label.bind("<Button-1>", self.handle_cancel)
         label.grid(column=grid_info["column"], row=grid_info["row"])
+        if self.cb:
+            self.cb()
 
     def get_window_position(self) -> (int, int):
         if self.master:
