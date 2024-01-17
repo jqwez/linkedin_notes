@@ -9,11 +9,7 @@ from controller.connection_controller import ConnectionController
 class ConnectionListWidget(ttk.Frame):
     def __init__(self, master=None, **kwargs):
         super().__init__(master, **kwargs)
-        self.button = ttk.Button(
-            self,
-            text="Get Connections",
-            command=self.update_data,
-        ).grid(column=0, row=0, columnspan=2, sticky="nsew")
+        self.update_data()
 
     def clear_frame(self):
         for widget in self.winfo_children():
